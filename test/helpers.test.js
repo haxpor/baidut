@@ -1,0 +1,3 @@
+describe("Helpers module", function() {
+	// to be added ...
+});
