@@ -39,6 +39,11 @@ As you likely to involve translating Unicode language as well thus defining that
 </head>
 ```
 
+# Document
+
+You can look [here](https://haxpor.github.io/baidut/) for document reference.
+Error code built-in for baidut can be seen [here](https://haxpor.github.io/baidut/Baidut.const.html#.cst.errorCode__anchor) so you could have better error handling on your application by checking which code for which error.
+
 # License
 
 MIT. See and understand license [here](https://github.com/haxpor/baidut/blob/master/LICENSE).
