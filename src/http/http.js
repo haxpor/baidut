@@ -9,14 +9,39 @@ module.exports = function(Baidut) {
 	var http = Baidut.http = {};
 
 	var jsonp = require("../vendor/jsonp");
+	var md5 = require("../vendor/md5");
+
+	var _kDefaultSettings = {
+		http_request: false,
+		from_lang: "zh",
+		to_lang: "en"
+	};
+
+	// form URL params
+	function _formURLParams(query, from, to) {
+		var appid = Baidut.env.global.appId;
+		var key = Baidut.env.global.key;
+		var salt = (new Date).getTime();
+
+		var str1 = appid + query + salt + key;
+		var sign = md5(str1);
+
+		return "?q=" + encodeURIComponent(query) + "&appid=" + appid + "&from=" + from + "&to=" + to + "&sign=" + sign + "&salt=" + salt;
+	}
 
 	/**
 	 * Make a jsonp request to target url
-	 * @param  {String}   url      target url end-point to make a request to
-	 * @param  {String}   key      parameter name of callback, make sure this is set to be the same as the end-point you're trying to make a request to
+	 * @param  {String}   query Text to translate. It can be in any language. If you specified non-chinese text, then you should also specific `from_lang` of options parameter to match that language code too, otherwise it will treat as chinese.
+	 * @param {Object} options (**optional**) options as object  
+	 * It can include  
+	 * {  
+	 * `http_request`: *Boolean* = set to true to make a request for Baidu's HTTP end-point. Otherwise, there's no effect to the call.  
+	 * `from_lang`: *String* = language code to translate from. Default value is 'zh'.  
+	 * `to_lang`: *String* = language code to translate to. Default value is 'en'.  
+	 * }
 	 * @return {Object}            Promise object
 	 */
-	http.requestJSONP = function(url, key) {
+	http.requestJSONP = function(query, options) {
 
 		return new Promise((resolve, reject) => {
 			// wrapped callback inside before we return Promise object based on data received
@@ -34,7 +59,18 @@ module.exports = function(Baidut) {
 				return resolve(data);
 			};
 
-			jsonp(url, key, internal_callback);
+			var propChk = Baidut.helpers.propertyCheck;
+			var urlParams = _formURLParams(query, propChk(options, "from_lang", _kDefaultSettings.from_lang), propChk(options, "to_lang", _kDefaultSettings.to_lang));
+
+			var useHttp = propChk(options, "http_request", _kDefaultSettings.http_request);
+
+			// Baidu uses "callback" as callback parameter key
+			if (useHttp) {
+				jsonp(Baidut.env.global.httpEndPointURL + urlParams, "callback", internal_callback);
+			}
+			else {
+				jsonp(Baidut.env.global.httpsEndPointURL + urlParams, "callback", internal_callback);
+			}
 		});
 	}
 }
