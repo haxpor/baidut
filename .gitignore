@@ -1,7 +1,6 @@
 /node_modules
 /dist
 /karma_html
-/docs
 /lib
 npm-debug.log
 
