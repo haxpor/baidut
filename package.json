@@ -5,7 +5,7 @@
   "main": "lib/baidut.js",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "./node_modules/.bin/rimraf lib/* && ./node_modules/.bin/babel src -d lib && gulp build",
+    "build": "./node_modules/.bin/rimraf dist/* && ./node_modules/.bin/rimraf lib/* && ./node_modules/.bin/babel src -d lib && gulp build",
     "test": "gulp unittest",
     "docs": "gulp doc",
     "start": "gulp buildDev && npm run http-and-watch",

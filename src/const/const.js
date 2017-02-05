@@ -15,6 +15,8 @@ module.exports = function (Baidut) {
 	 * @property {Number} internetConnectionIssue - Suspect to be a problem about Internet connection. User might not be able to connect to the Internet.
 	 * @property {Number} responseIsNull - Response is null.
 	 * @property {Number} jsonParsedError - JSON parse error.
+	 * @property {Number} appIdNotSet - App Id not set yet.
+	 * @property {Number} keyNotSet - Key is not set yet.
 	 * @property {Number} requestTimedOut - Requested time out
 	 * @property {Number} systemError - System error
 	 * @property {Number} unauthorizedUsers - Unauthorized users
@@ -31,6 +33,8 @@ module.exports = function (Baidut) {
 		internetConnectionIssue: 99999,
 		responseIsNull: 99998,
 		jsonParsedError: 99997,
+		appIdNotSet: 99996,
+		keyNotSet: 99995,
 		requestTimedOut: 52001,
 		systemError: 52002,
 		unauthorizedUsers: 52003,
@@ -49,6 +53,8 @@ module.exports = function (Baidut) {
 	 * @property {String} internetConnectionIssue - Error message for internet connection issue
 	 * @property {String} responseIsNull - Error message for response is null
 	 * @property {String} jsonParsedError - Error message for JSON parsed error
+	 * @property {String} appIdNotSet - App Id was not set yet. Set it via Baidut.builder.
+	 * @property {String} keyNotSet - Key was not set yet. Set it via Baidut.builder.
 	 * @property {String} requestTimedOut - Error message for Requested time out
 	 * @property {String} systemError - Error message for System error
 	 * @property {String} unauthorizedUsers - Error message for Unauthorized users
@@ -64,6 +70,8 @@ module.exports = function (Baidut) {
 		internetConnectionIssue: "Suspect to be a problem about Internet connection. User might not be able to connect to the Internet. Check that you have connected to WiFi.",
 		responseIsNull: "Response is null. If this is intentional from API, then it's still fine.",
 		jsonParsedError: "JSON parsed on response string encountered error.",
+		appIdNotSet: "App Id was not set yet. Set it via Baidut.builder before making a request.",
+		keyNotSet: "Key was not set yet. Set it via Baidut.builder before making a request.",
 		requestTimedOut: "Request timedout. Retry again later.",
 		systemError: "System error. Retry again later.",
 		unauthorizedUsers: "Unauthorized users. Check your appid is correct. You can register your application id at http://api.fanyi.baidu.com/api/trans/product/desktop?req=developer.",

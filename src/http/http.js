@@ -44,6 +44,14 @@ module.exports = function(Baidut) {
 	http.requestJSONP = function(query, options) {
 
 		return new Promise((resolve, reject) => {
+			// check if appid and key are set 
+			if (Baidut.env.global.appId == null) {
+				return reject(Baidut.const.error(Baidut.const.errorCode.appIdNotSet));
+			}
+			if (Baidut.env.global.key == null) {
+				return reject(Baidut.const.error(Baidut.const.errorCode.keyNotSet));
+			}
+
 			// wrapped callback inside before we return Promise object based on data received
 			var internal_callback = function(data) {
 
@@ -55,6 +63,9 @@ module.exports = function(Baidut) {
 				else if (data["error_code"] != null) {
 					return reject(Baidut.const.error(parseInt(data["error_code"])), { additional_msg: data["error_msg"] });
 				}
+
+				data.trans_result[0].src = decodeURIComponent(data.trans_result[0].src);
+				data.trans_result[0].dst = decodeURIComponent(data.trans_result[0].dst);
 
 				return resolve(data);
 			};

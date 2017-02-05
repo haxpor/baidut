@@ -1,37 +1,38 @@
 <html>
 <head>
-<style>
-  html, body {
-    margin: 0;
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-  }
-  main {
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-  }
-  #banner {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: #4CAF50;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 16px 24px;
-  }
-  h2 {
-    margin: 0;
-  }
-</style>
-<script src="dist/Baidut-dev-es5.js"></script>
+  <meta charset="UTF-8">
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    #banner {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #4CAF50;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 16px 24px;
+    }
+    h2 {
+      margin: 0;
+    }
+  </style>
+  <script src="dist/Baidut.min.js"></script>
 </head>
 <body>
 	<header id="banner">
@@ -39,12 +40,23 @@
 	</header>
 
 	<main>
-	  <!-- Test calling Baidut API here... -->
+    <!-- Result of test calling Baiut's API will be shown inside h1 -->
 	  <h1></h1>
 	</main>
 
 	<script>
-		document.querySelector('h1').innerHTML = Baidut.util.returnHayHay();
+    Baidut.builder
+      .setAppId("2015063000000001")
+      .setKey("12345678")
+      .build();
+
+    Baidut.translate('苹果')
+      .then((result) => {
+        console.log(result);
+        document.querySelector('h1').innerHTML = JSON.stringify(result);
+      }, (e) => {
+        document.querySelector('h1').innerHTML = JSON.stringify(e.message + ", " + e.code);
+      });
 	</script>
 </body>
 </html>
