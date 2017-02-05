@@ -65,10 +65,7 @@ module.exports = function(Baidut) {
 				else if (data["error_code"] != null) {
 					return reject(Baidut.const.error(parseInt(data["error_code"])), { additional_msg: data["error_msg"] });
 				}
-
-				//data.trans_result[0].src = decodeURIComponent(data.trans_result[0].src);
-				//data.trans_result[0].dst = decodeURIComponent(data.trans_result[0].dst);
-
+				
 				return resolve(data);
 			};
 

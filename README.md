@@ -1,2 +1,44 @@
 # baidut
-Baidu translator Node JS implementation
+Baidu translator for NodeJS and Browser with Promise ready.
+
+# Installation
+
+Install it via `npm install baidut`.
+
+# Usage
+
+You need to prepare Baidu environment first before making a call to translate.
+
+```javascript
+Baidut.builder
+    .setAppId("2015063000000001")
+    .setKey("12345678")
+    .build();
+```
+
+Then translate it via
+
+```javascript
+Baidut.translate('苹果')
+    .then((result) => {
+    	console.log("translated text: " + result.trans_result[0].dst);
+    }, (e) => {
+    	console.log(e.code + ": " + e.message);
+    });
+```
+
+# Note on Browser
+
+As you likely to involve translating Unicode language as well thus defining that your HTML file has UTF-8 encoding is important to have conistency in displaying proper text for non-English language.
+
+```html
+<head>
+...
+<meta charset="UTF-8">
+...
+</head>
+```
+
+# License
+
+MIT. See and understand license [here](https://github.com/haxpor/baidut/blob/master/LICENSE).

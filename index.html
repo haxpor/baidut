@@ -9,12 +9,7 @@
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
     }
-    main {
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-    }
+
     #banner {
       display: flex;
       align-items: center;
@@ -31,6 +26,13 @@
     h2 {
       margin: 0;
     }
+    div {
+      margin-left: 25px;
+      margin-right: 25px;
+      margin-top: 100px;
+      margin-bottom: 50px;
+      overflow-y: scroll;
+    }
   </style>
   <script src="dist/Baidut.min.js"></script>
 </head>
@@ -41,7 +43,7 @@
 
 	<main>
     <!-- Result of test calling Baiut's API will be shown inside h1 -->
-	  <h1></h1>
+	  <div></div>
 	</main>
 
 	<script>
@@ -50,12 +52,12 @@
       .setKey("12345678")
       .build();
 
-    Baidut.translate('苹果')
+    Baidut.translate('近年来，北京市互联网迅速发展，据中国互联网信息中心（CNNIC）2005年1月公布的第十五次互联网报告统计显示，我国上网计算机数量已达到4160万，上网总人数达到9400万，其中北京地区上网人数为402万；CN域名数全国432077个，北京地区有87371个，占总数的20.3%，WWW站点总数为668900个，北京地区有125297个，占总数的18.7%。然而，北京地区已备案的网站只有不到两千家，所以根据我国“计算机信息网络国际联网安全保护管理办法”的第二章“安全保护责任”中的第十一条规定“用户在接入单位办理入网手续时，应当填写用户备案表。备案表由公安部监制。”；第十二条规定“互联单位、接入单位、使用计算机信息网络国际联网的法人和其他组织（包括跨省、自治区、直辖市联网的单位和所属的分支机构），应当自网络正式联通之日起三十日内，到所在地的省、自治区、直辖市人民政府公安机关指定的受理机关办理备案手续。前款所列单位应当负责将接入本网络的接入单位和用户情况报当地公安机关备案，并及时报告本网络中接入单位和用户的变更情况。”；我处定于即日起集中开展中小网站备案工作。')
       .then((result) => {
         console.log(result);
-        document.querySelector('h1').innerHTML = JSON.stringify(result);
+        document.querySelector('div').innerHTML = JSON.stringify(result.trans_result[0].dst);
       }, (e) => {
-        document.querySelector('h1').innerHTML = JSON.stringify(e.message + ", " + e.code);
+        document.querySelector('div').innerHTML = JSON.stringify(e.message + ", " + e.code);
       });
 	</script>
 </body>
