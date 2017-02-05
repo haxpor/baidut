@@ -26,7 +26,7 @@ module.exports = function(Baidut) {
 		var str1 = appid + query + salt + key;
 		var sign = md5(str1);
 
-		return "?q=" + encodeURIComponent(query) + "&appid=" + appid + "&from=" + from + "&to=" + to + "&sign=" + sign + "&salt=" + salt;
+		return "?q=" + query + "&appid=" + appid + "&from=" + from + "&to=" + to + "&sign=" + sign + "&salt=" + salt;
 	}
 
 	/**
@@ -66,8 +66,8 @@ module.exports = function(Baidut) {
 					return reject(Baidut.const.error(parseInt(data["error_code"])), { additional_msg: data["error_msg"] });
 				}
 
-				data.trans_result[0].src = decodeURIComponent(data.trans_result[0].src);
-				data.trans_result[0].dst = decodeURIComponent(data.trans_result[0].dst);
+				//data.trans_result[0].src = decodeURIComponent(data.trans_result[0].src);
+				//data.trans_result[0].dst = decodeURIComponent(data.trans_result[0].dst);
 
 				return resolve(data);
 			};
