@@ -51,4 +51,17 @@ describe("HTTP module", function() {
 				console.log(e);
 			});
 	});
+
+	it("should be able to get valid result - with all options", function(done) {
+		Baidut.translate('สวัสดี', { http_request: true, from_lang: "th", to_lang: "en" })
+			.then((result) => {
+				expect(result.error_code).toBe(undefined);
+				expect(result.trans_result.length > 0).toBeTruthy();
+				expect(result.trans_result[0].src).toEqual("สวัสดี");
+				expect(result.trans_result[0].dst.toLowerCase()).toEqual("hi.");
+				done();
+			}, (e) => {
+				console.log(e);
+			});
+	});
 });
