@@ -18,6 +18,9 @@ require('./http/http.js')(Baidut);
 // -- helpers -- //
 require('./helpers/helpers.js')(Baidut);
 
+// -- wrapper -- //
+require('./wrapper/_wrapper.js')(Baidut);
+
 module.exports = Baidut;
 // if it's in browser environment
 var isBrowser = new Function("try {return this===window;}catch(e){ return false;}");

@@ -19,7 +19,7 @@ module.exports = function(Baidut) {
    */
   helpers.propertyCheck = function(object, propertyName, defaultValue) {
     if (object != null && propertyName != null && object.hasOwnProperty(propertyName)) {
-      if (object[propertyName] == null) {
+      if (object[propertyName] == null || object[propertyName] == undefined) {
         return defaultValue;
       }
       else {
