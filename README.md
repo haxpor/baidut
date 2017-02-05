@@ -20,12 +20,26 @@ Then translate it via
 
 ```javascript
 Baidut.translate('苹果')
-    .then((result) => {
-    	console.log("translated text: " + result.trans_result[0].dst);
-    }, (e) => {
-    	console.log(e.code + ": " + e.message);
-    });
+  .then((result) => {
+  	console.log("translated text: " + result.trans_result[0].dst);
+  }, (e) => {
+  	console.log(e.code + ": " + e.message);
+  });
 ```
+
+There are options you can set when translate too.
+
+```javascript
+Baidut.translate('สวัสดี', { http_request: true, from_lang: "th", to_lang: "en" })
+	.then((result) => {
+		console.log("translated text: " + result.trans_result[0].dst);
+	}, (e) => {
+		console.log(e.code + ": " + e.message);
+	});
+```
+
+Above set `http_request=true` to force it to make a request via HTTP protocol, and set `from_lang="th"` to mark that the source langauge is Thai, and `to_lang="en"` to mark the result we want in English.  
+See list of language support at [official document](http://api.fanyi.baidu.com/api/trans/product/apidoc).
 
 # Note on Browser
 
