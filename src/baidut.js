@@ -6,7 +6,6 @@
 var Baidut = require('./core/core.js')();
 
 // -- core -- //
-require('./core/core.util.js')(Baidut);
 require('./core/builder.js')(Baidut);
 
 // -- const -- //

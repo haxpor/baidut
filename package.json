@@ -1,7 +1,7 @@
 {
   "name": "baidut",
   "version": "0.0.1",
-  "description": "Your project description here",
+  "description": "Baidut, translator for Baidu for both NodeJS and Browser",
   "main": "lib/baidut.js",
   "scripts": {
     "prepublish": "npm run build",

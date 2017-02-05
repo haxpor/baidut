@@ -40,6 +40,8 @@ module.exports = function(Baidut) {
 	 * `to_lang`: *String* = language code to translate to. Default value is 'en'.  
 	 * }
 	 * @return {Object}            Promise object
+	 * @method requestJSONP
+	 * @memberOf Baidut.http
 	 */
 	http.requestJSONP = function(query, options) {
 
