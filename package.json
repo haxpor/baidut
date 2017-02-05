@@ -1,6 +1,6 @@
 {
   "name": "baidut",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Baidut, translator for Baidu for both NodeJS and Browser",
   "main": "lib/baidut.js",
   "scripts": {
