@@ -12,11 +12,19 @@
     "http-and-watch": "./node_modules/.bin/lite-server & gulp watch",
     "clean": "./node_modules/.bin/rimraf dist/* && ./node_modules/.bin/rimraf lib/* && ./node_modules/.bin/rimraf docs/*"
   },
+  "keywords": [
+    "baidu",
+    "api",
+    "fanyi",
+    "baidut",
+    "translator",
+    "translate"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/haxpor/baidut.git"
   },
-  "author": "Wasin Thonkaew",
+  "author": "Wasin Thonkaew (https://wasin.io)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/haxpor/baidut/issues"
