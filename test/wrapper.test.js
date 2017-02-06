@@ -6,7 +6,7 @@ describe("Wrapper test", function() {
 				expect(result.trans_result[0].dst.toLowerCase()).toEqual("apple");
 				done();
 			}, (e) => {
-				console.log(e);
+				fail(e.code + ": " + e.message);
 			});
 	});
 });
