@@ -12,8 +12,6 @@
 				.setAppId(mock.appId)
 				.setKey(mock.key)
 				.build();
-
-			console.log("set");
 		}
 
 		var isBrowser = new Function("try {return this===window;}catch(e){ return false;}");

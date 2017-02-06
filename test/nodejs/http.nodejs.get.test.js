@@ -3,7 +3,7 @@ var Baidut = require("../../src/baidut.js");
 describe("HTTP/HTTPs - NodeJS, GET", function() {
 
 	it("should get and able to validate result from barebone minimal call to requestHTTP()", function(done) {
-		Baidut.http.requestHTTP("苹果", { http_get_method: true })
+		Baidut.http.requestHTTP("苹果", { get_method: true })
 			.then((result) => {
 				expect(result.error_code).toBe(undefined);
 				expect(result.trans_result.length > 0).toBeTruthy();
@@ -16,7 +16,7 @@ describe("HTTP/HTTPs - NodeJS, GET", function() {
 	});
 
 	it("should get and able to validate result get result from requestHTTP() with http_request", function(done) {
-		Baidut.http.requestHTTP("苹果", { http_request: true, http_get_method: true })
+		Baidut.http.requestHTTP("苹果", { http_request: true, get_method: true })
 			.then((result) => {
 				expect(result.error_code).toBe(undefined);
 				expect(result.trans_result.length > 0).toBeTruthy();
@@ -29,7 +29,7 @@ describe("HTTP/HTTPs - NodeJS, GET", function() {
 	});
 
 	it("should be able to get and able to validate result from HTTPs end-point URL - variant 1", function(done) {
-		Baidut.http.requestHTTP("苹果", { http_request: false, http_get_method: true })
+		Baidut.http.requestHTTP("苹果", { http_request: false, get_method: true })
 			.then((result) => {
 				expect(result.error_code).toBe(undefined);
 				expect(result.trans_result.length > 0).toBeTruthy();
@@ -42,7 +42,7 @@ describe("HTTP/HTTPs - NodeJS, GET", function() {
 	});
 
 	it("should be able to get valid result - with all options", function(done) {
-		Baidut.http.requestHTTP('สวัสดี', { http_request: true, from_lang: "th", to_lang: "en", http_get_method: true})
+		Baidut.http.requestHTTP('สวัสดี', { http_request: true, from_lang: "th", to_lang: "en", get_method: true})
 			.then((result) => {
 				expect(result.error_code).toBe(undefined);
 				expect(result.trans_result.length > 0).toBeTruthy();
