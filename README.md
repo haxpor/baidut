@@ -1,6 +1,10 @@
 # baidut
 Baidu translator for NodeJS and Browser with Promise ready.
 
+On browser, it will make a new request via [JSONP](https://en.wikipedia.org/wiki/JSONP) as Baidu doesn't support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). It offers option to be set either to request for Baidu's HTTP, or HTTPS URL end-point.
+
+On NodeJS, it will make a new request via normal NodeJS's http|https module with options to be set either to go with GET or POST request, and either request for Baidu's HTTP, or HTTPS URL end-point.
+
 # Installation
 
 Install it via `npm install baidut`.
@@ -45,15 +49,12 @@ Baidut.translate('苹果')
   });
 ```
 
-**Notice**  
-On browser, it will make a new request via [JSONP](https://en.wikipedia.org/wiki/JSONP) as Baidu doesn't support [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). It offers option to be set either to request for Baidu's HTTP, or HTTPS URL end-point.
+Above will translate input text from Chinese to English with POST method of HTTPS request on NodeJS. For browser, it goes with GET method with HTTPS request via JSONP on browser.
 
-On NodeJS, it will make a new request via normal NodeJS's http|https module with options to be set either to go with GET or POST request, and either request for Baidu's HTTP, or HTTPS URL end-point.
-
-You set those options via
+You set options via
 
 ```javascript
-Baidut.translate('สวัสดี', { http_request: true, http_get_method: true, from_lang: "th", to_lang: "en" })
+Baidut.translate('สวัสดี', { http_request: true, get_method: true, from_lang: "th", to_lang: "en" })
 	.then((result) => {
 		console.log("translated text: " + result.trans_result[0].dst);
 	}, (e) => {
@@ -61,7 +62,7 @@ Baidut.translate('สวัสดี', { http_request: true, http_get_method: tr
 	});
 ```
 
-Above set `http_request=true` to force it to make a request via HTTP protocol, and set `from_lang="th"` to mark that the source langauge is Thai, and `to_lang="en"` to mark the result we want in English.  
+Above set `http_request=true` to force it to make a request via HTTP protocol, `get_method=true` <sub>only available on NodeJS</sub> to force it to use GET method for request, and set `from_lang="th"` to mark that the source langauge is Thai, and `to_lang="en"` to mark the result we want in English.  
 
 See list of language support at [official document](http://api.fanyi.baidu.com/api/trans/product/apidoc).
 

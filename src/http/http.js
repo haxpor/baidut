@@ -15,7 +15,7 @@ module.exports = function(Baidut) {
 		http_request: false,
 		from_lang: "zh",
 		to_lang: "en",
-		http_get_method: false,
+		get_method: false,
 		proxy: null
 	};
 
@@ -128,7 +128,7 @@ module.exports = function(Baidut) {
 	 * It can include  
 	 * {  
 	 * `http_request`: *Boolean* = set to true to make a request for Baidu's HTTP end-point. Otherwise, there's no effect to the call.  
-	 * `http_get_method`: *Boolean* = set to true to make a HTTP GET method. Default is always send in HTTP POST method. Otherwise, there's no effect to the call.  
+	 * `get_method`: *Boolean* = set to true to make a HTTP GET method. Default is always send in HTTP POST method. Otherwise, there's no effect to the call.  
 	 * `from_lang`: *String* = language code to translate from. Default value is 'zh'.  
 	 * `to_lang`: *String* = language code to translate to. Default value is 'en'.  
 	 * }
@@ -142,7 +142,7 @@ module.exports = function(Baidut) {
 
 			var propChk = Baidut.helpers.propertyCheck;
 
-			var useGETMethod = propChk(options, "http_get_method", _kDefaultSettings.http_get_method);
+			var useGETMethod = propChk(options, "get_method", _kDefaultSettings.get_method);
 
 			if (useGETMethod) {
 
