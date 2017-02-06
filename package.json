@@ -1,12 +1,12 @@
 {
   "name": "baidut",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "description": "Baidut, translator for Baidu for both NodeJS and Browser",
   "main": "lib/baidut.js",
   "scripts": {
     "prepublish": "npm run build",
     "build": "./node_modules/.bin/rimraf dist/* && ./node_modules/.bin/rimraf lib/* && ./node_modules/.bin/babel src -d lib && gulp build",
-    "test": "gulp unittest",
+    "test": "./node_modules/.bin/jasmine && gulp unittest",
     "docs": "gulp doc",
     "start": "gulp buildDev && npm run http-and-watch",
     "http-and-watch": "./node_modules/.bin/lite-server & gulp watch",

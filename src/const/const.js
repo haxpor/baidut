@@ -28,6 +28,7 @@ module.exports = function (Baidut) {
 	 * @property {Number} accountBalanceInsufficient - Account balance is insufficient
 	 * @property {Number} longQueryRequestFrequently - Long query request frequently
 	 * @memberof Baidut.const
+	 * @name errorCode
 	 */
 	cst.errorCode = {
 		internetConnectionIssue: 99999,
@@ -65,6 +66,8 @@ module.exports = function (Baidut) {
 	 * @property {String} targetLanguageNotSupported - Error message for Target language is not supported
 	 * @property {String} accountBalanceInsufficient - Error message for Account balance is insufficient
 	 * @property {String} longQueryRequestFrequently - Error message for Long query request frequently
+	 * @memberOf Baidut.const
+	 * @name  errorMessage
 	 */
 	cst.errorMessage = {
 		internetConnectionIssue: "Suspect to be a problem about Internet connection. User might not be able to connect to the Internet. Check that you have connected to WiFi.",

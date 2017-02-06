@@ -34,7 +34,8 @@ var preTestFiles = [
 ];
 
 var testFiles = [
-	'./test/*.js'
+	'./test/*.js',
+	'./test/browser/*.js'
 ];
 
 /**

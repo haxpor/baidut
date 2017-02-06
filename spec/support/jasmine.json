@@ -1,0 +1,12 @@
+{
+  "spec_dir": "test",
+  "spec_files": [
+  	"nodejs/*.js"
+  ],
+  "helpers": [
+    "src/**/*.js",
+    "mockContext.js"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": false
+}
