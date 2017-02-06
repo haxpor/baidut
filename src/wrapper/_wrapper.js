@@ -5,5 +5,12 @@
  * @namespace Baidut
  */
 module.exports = function(Baidut) {
-	Baidut.translate = Baidut.http.requestJSONP;
+
+	var isBrowser = new Function("try {return this===window;}catch(e){ return false;}");
+	if (isBrowser()) {
+		Baidut.translate = Baidut.http.requestJSONP;
+	}
+	else {
+		Baidut.translate = Baidut.http.requestHTTP;
+	}
 }

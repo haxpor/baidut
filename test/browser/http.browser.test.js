@@ -1,4 +1,4 @@
-describe("HTTP module", function() {
+describe("HTTP/HTTPs - Browser", function() {
 
 	it("should get and able to validate result from barebone minimal call to requestJSONP()", function(done) {
 		Baidut.http.requestJSONP("苹果")
@@ -9,7 +9,7 @@ describe("HTTP module", function() {
 				expect(result.trans_result[0].dst.toLowerCase()).toEqual("apple");
 				done();
 			}, (e) => {
-				console.log(e);
+				fail(e.code + ": " + e.message);
 			});
 	});
 
@@ -22,7 +22,7 @@ describe("HTTP module", function() {
 				expect(result.trans_result[0].dst.toLowerCase()).toEqual("apple");
 				done();
 			}, (e) => {
-				console.log(e);
+				fail(e.code + ": " + e.message);
 			});
 	});
 
@@ -35,7 +35,7 @@ describe("HTTP module", function() {
 				expect(result.trans_result[0].dst.toLowerCase()).toEqual("apple");
 				done();
 			}, (e) => {
-				console.log(e);
+				fail(e.code + ": " + e.message);
 			});
 	});
 
@@ -48,12 +48,12 @@ describe("HTTP module", function() {
 				expect(result.trans_result[0].dst.toLowerCase()).toEqual("apple");
 				done();
 			}, (e) => {
-				console.log(e);
+				fail(e.code + ": " + e.message);
 			});
 	});
 
 	it("should be able to get valid result - with all options", function(done) {
-		Baidut.translate('สวัสดี', { http_request: true, from_lang: "th", to_lang: "en" })
+		Baidut.http.requestJSONP('สวัสดี', { http_request: true, from_lang: "th", to_lang: "en" })
 			.then((result) => {
 				expect(result.error_code).toBe(undefined);
 				expect(result.trans_result.length > 0).toBeTruthy();
@@ -61,7 +61,7 @@ describe("HTTP module", function() {
 				expect(result.trans_result[0].dst.toLowerCase()).toEqual("hi.");
 				done();
 			}, (e) => {
-				console.log(e);
+				fail(e.code + ": " + e.message);
 			});
 	});
 });
