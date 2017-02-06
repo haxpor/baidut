@@ -185,8 +185,6 @@ module.exports = function(Baidut) {
 
 		return new Promise((resolve, reject) => {
 
-			console.log("get request");
-
 			// load proper library
 			// load from reference if it's already loaded
 			const lib = url.search('https') != -1 ? require('https') : require('http');
@@ -266,8 +264,6 @@ module.exports = function(Baidut) {
 	function _reg_POST_HTTP(url, postDataKvp) {
 
 		return new Promise( (resolve, reject) => {
-
-			console.log("post request");
 
 			// load proper library
 			// load from reference if it's already loaded
